@@ -33,7 +33,7 @@
     "build": "babel -d lib/ src/ && npm run assets && npm run less",
     "build:examples": "npm run clean:examples && webpack --config examples/webpack.config.js",
     "build:prod": "npm run clean && babel -d lib/ src/ && npm run assets && npm run less",
-    "watch": "npm run build:dev -w",
+    "watch": "babel -w -d lib/ src/",
     "examples": "npm run clean:examples && webpack-dev-server --config examples/webpack.config.js --mode development",
     "lint": "eslint --ext js,jsx src/ test/",
     "test": "npm run lint && jest",
@@ -59,6 +59,7 @@
     "bracketSpacing": true
   },
   "peerDependencies": {
+    "lodash": "^4.17.11",
     "moment": "^2.24.0",
     "react": "^16.0.0",
     "react-dom": "^16.0.0"
@@ -105,7 +106,6 @@
     "date-arithmetic": "^3.1.0",
     "dom-helpers": "^3.4.0",
     "invariant": "^2.2.4",
-    "lodash": "^4.17.11",
     "prop-types": "^15.7.2",
     "prop-types-extra": "^1.1.0",
     "react-overlays": "^1.2.0",
