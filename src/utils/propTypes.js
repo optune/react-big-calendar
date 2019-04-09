@@ -9,9 +9,6 @@ export let eventComponent = PropTypes.oneOfType([
   elementType,
   PropTypes.shape({
     month: elementType,
-    week: elementType,
-    day: elementType,
-    agenda: elementType,
   }),
 ])
 
