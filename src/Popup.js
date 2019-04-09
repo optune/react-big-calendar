@@ -26,8 +26,8 @@ const propTypes = {
   localizer: PropTypes.object.isRequired,
   onSelect: PropTypes.func,
   onDoubleClick: PropTypes.func,
-  slotStart: PropTypes.number,
-  slotEnd: PropTypes.number,
+  slotStart: PropTypes.instanceOf(Date),
+  slotEnd: PropTypes.instanceOf(Date),
 }
 
 class Popup extends React.Component {

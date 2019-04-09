@@ -258,19 +258,21 @@ class MonthView extends React.Component {
         show={!!overlay.position}
         onHide={() => this.setState({ overlay: null })}
       >
-        <Popup
-          accessors={accessors}
-          getters={getters}
-          selected={selected}
-          components={components}
-          localizer={localizer}
-          position={overlay.position}
-          events={overlay.events}
-          slotStart={overlay.date}
-          slotEnd={overlay.end}
-          onSelect={this.handleSelectEvent}
-          onDoubleClick={this.handleDoubleClickEvent}
-        />
+        {() => (
+          <Popup
+            accessors={accessors}
+            getters={getters}
+            selected={selected}
+            components={components}
+            localizer={localizer}
+            position={overlay.position}
+            events={overlay.events}
+            slotStart={overlay.date}
+            slotEnd={overlay.end}
+            onSelect={this.handleSelectEvent}
+            onDoubleClick={this.handleDoubleClickEvent}
+          />
+        )}
       </Overlay>
     )
   }
