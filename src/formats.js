@@ -1,19 +1,5 @@
 import dates from './utils/dates'
 
-function inSame12Hr(start, end) {
-  let s = 12 - dates.hours(start)
-  let e = 12 - dates.hours(end)
-  return (s <= 0 && e <= 0) || (s >= 0 && e >= 0)
-}
-
-let dateRangeFormat = ({ start, end }, culture, local) =>
-  local.format(start, 'd', culture) + ' — ' + local.format(end, 'd', culture)
-
-let timeRangeFormat = ({ start, end }, culture, local) =>
-  local.format(start, 'h:mmtt', culture) +
-  ' — ' +
-  local.format(end, inSame12Hr(start, end) ? 'h:mm' : 'h:mmtt', culture)
-
 let weekRangeFormat = ({ start, end }, culture, local) =>
   local.format(start, 'MMM dd', culture) +
   ' - ' +
@@ -24,19 +10,9 @@ let formats = {
   dayFormat: 'ddd dd/MM',
   weekdayFormat: 'ddd',
 
-  selectRangeFormat: timeRangeFormat,
-  eventTimeRangeFormat: timeRangeFormat,
-
-  timeGutterFormat: 'h:mm tt',
-
   monthHeaderFormat: 'MMMM yyyy',
   dayHeaderFormat: 'dddd MMM dd',
   dayRangeHeaderFormat: weekRangeFormat,
-  agendaHeaderFormat: dateRangeFormat,
-
-  agendaDateFormat: 'ddd MMM dd',
-  agendaTimeFormat: 'hh:mm tt',
-  agendaTimeRangeFormat: timeRangeFormat,
 }
 
 export function set(_formats) {
